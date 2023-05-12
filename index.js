@@ -80,7 +80,7 @@ app.get("/auth/google", passport.authenticate("google", { scope: ["profile"] })
 app.get("/auth/google/secrets",
     passport.authenticate('google', { failureRedirect: "/login" }),
     function (req, res) {
-        // Successful authentication, redirect secrets.
+        // Successful authentication, redirect to secrets page.
         res.redirect("/secrets");
     });
 
@@ -114,7 +114,6 @@ app.get("/submit", function (req, res) {
         res.redirect("/login");
     }
 });
-// redirecting to submit secret page end
 
 
 // post secret
@@ -184,11 +183,6 @@ app.post("/login", function (req, res) {
         }
     });
 });
-
-
-
-
-
 
 
 app.listen(process.env.PORT || 3000, function () {
